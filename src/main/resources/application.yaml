@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: cryptodvala-exchange-service
+  profiles:
+    active: "${ACTIVE_PROFILE}:dev"
+  cache:
+    type: redis
+    cache-names: ${CACHE_NAME}
+    redis:
+      time-to-live: 1m
+      cache-null-values: false
+      enable-statistics: true
+  datasource:
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    url: ${DB_URL}
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
