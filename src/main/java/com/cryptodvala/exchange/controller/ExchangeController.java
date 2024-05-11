@@ -20,6 +20,11 @@ public class ExchangeController {
         return exchangeService.getAllExchanges();
     }
 
+    @GetMapping(params = "sorted")
+    public List<ExchangeDto> getAllExchangesSorted() {
+        return exchangeService.getAllExchangesSortedByMarketPrice();
+    }
+
     @GetMapping("/{symbol}")
     public ResponseEntity<ExchangeDto> getExchangeBySymbol(@PathVariable String symbol) {
         return ResponseEntity.ok(exchangeService.getExchange(symbol));

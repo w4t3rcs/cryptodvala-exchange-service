@@ -9,5 +9,7 @@ public interface ExchangeService {
 
     List<ExchangeDto> getAllExchanges();
 
+    List<ExchangeDto> getAllExchangesSortedByMarketPrice();
+
     ExchangeDto getExchange(String symbol);
 }

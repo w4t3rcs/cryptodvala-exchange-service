@@ -31,6 +31,14 @@ public class ExchangeServiceImpl implements ExchangeService {
     }
 
     @Override
+    public List<ExchangeDto> getAllExchangesSortedByMarketPrice() {
+        return exchangeRepository.findAllByOrderByMarketPriceDesc()
+                .stream()
+                .map(ExchangeDto::fromExchange)
+                .toList();
+    }
+
+    @Override
     @Cacheable(key = "#symbol", value = "ExchangeServiceImpl::getExchange")
     public ExchangeDto getExchange(String symbol) {
         return ExchangeDto.fromExchange(exchangeRepository.findById(symbol)

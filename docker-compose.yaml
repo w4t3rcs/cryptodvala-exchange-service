@@ -19,7 +19,7 @@ services:
   postgresql:
     image: postgres
     restart: always
-    container_name: postgresql
+    container_name: cryptodvala-postgresql-exchange
     ports:
       - '5432:5432'
     environment:
@@ -29,7 +29,7 @@ services:
   redis:
     image: redis:latest
     restart: always
-    container_name: redis
+    container_name: cryptodvala-redis-exchange
     ports:
       - '6379:6379'
     environment:
