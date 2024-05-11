@@ -27,16 +27,6 @@ public class ExchangeController {
 
     @PostMapping
     public ResponseEntity<ExchangeDto> postExchange(@RequestBody ExchangeDto exchangeDto) {
-        return ResponseEntity.ok(exchangeService.createExchange(exchangeDto));
-    }
-
-    @PutMapping("/{symbol}")
-    public ResponseEntity<ExchangeDto> putExchange(@PathVariable String symbol, @RequestBody ExchangeDto exchangeDto) {
-        return ResponseEntity.ok(exchangeService.updateExchange(symbol, exchangeDto));
-    }
-
-    @DeleteMapping("/{symbol}")
-    public ResponseEntity<String> deleteExchange(@PathVariable String symbol) {
-        return ResponseEntity.ok(exchangeService.deleteExchange(symbol));
+        return ResponseEntity.ok(exchangeService.saveExchange(exchangeDto));
     }
 }

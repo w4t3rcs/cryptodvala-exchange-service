@@ -1,6 +1,6 @@
 package com.cryptodvala.exchange.async.impl;
 
-import com.cryptodvala.exchange.async.DatabaseUpdater;
+import com.cryptodvala.exchange.async.DatabaseLoader;
 import com.cryptodvala.exchange.dto.ExchangeDto;
 import com.cryptodvala.exchange.service.ExchangeService;
 import lombok.RequiredArgsConstructor;
@@ -14,18 +14,18 @@ import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
-public class DatabaseUpdaterImpl implements DatabaseUpdater {
+public class DatabaseLoaderImpl implements DatabaseLoader {
     private final ExchangeService exchangeService;
     private final RestClient restClient;
 
     @Override
     @Async
     @Scheduled(fixedDelay = 10000)
-    public void update() {
+    public void load() {
         Arrays.stream(Objects.requireNonNull(restClient.get()
                         .uri("https://fapi.binance.com/fapi/v1/premiumIndex")
                         .retrieve()
                         .body(ExchangeDto[].class)))
-                .forEach(exchangeService::createExchange);
+                .forEach(exchangeService::saveExchange);
     }
 }
