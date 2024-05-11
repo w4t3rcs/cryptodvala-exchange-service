@@ -24,9 +24,4 @@ public class ExchangeController {
     public ResponseEntity<ExchangeDto> getExchangeBySymbol(@PathVariable String symbol) {
         return ResponseEntity.ok(exchangeService.getExchange(symbol));
     }
-
-    @PostMapping
-    public ResponseEntity<ExchangeDto> postExchange(@RequestBody ExchangeDto exchangeDto) {
-        return ResponseEntity.ok(exchangeService.saveExchange(exchangeDto));
-    }
 }
