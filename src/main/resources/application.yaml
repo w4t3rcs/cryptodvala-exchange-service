@@ -16,3 +16,9 @@ spring:
   data:
     redis:
       password: ${REDIS_PASSWORD}
+management:
+  endpoints:
+    web:
+      base-path: /actuator/exchange-service/
+      exposure:
+        include: *
