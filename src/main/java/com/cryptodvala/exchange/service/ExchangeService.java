@@ -1,15 +1,15 @@
 package com.cryptodvala.exchange.service;
 
 import com.cryptodvala.exchange.dto.ExchangeDto;
-
-import java.util.List;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 public interface ExchangeService {
-    ExchangeDto saveExchange(ExchangeDto exchange);
+    Mono<ExchangeDto> saveExchange(ExchangeDto exchange);
 
-    List<ExchangeDto> getAllExchanges();
+    Flux<ExchangeDto> getAllExchanges();
 
-    List<ExchangeDto> getAllExchangesSortedByMarketPrice();
+    Flux<ExchangeDto> getAllExchangesSortedByMarketPrice();
 
-    ExchangeDto getExchange(String symbol);
+    Mono<ExchangeDto> getExchange(String symbol);
 }

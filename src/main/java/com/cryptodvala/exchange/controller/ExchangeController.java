@@ -5,8 +5,8 @@ import com.cryptodvala.exchange.service.ExchangeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @CrossOrigin
 @RestController
@@ -16,17 +16,17 @@ public class ExchangeController {
     private final ExchangeService exchangeService;
 
     @GetMapping
-    public List<ExchangeDto> getAllExchanges() {
+    public Flux<ExchangeDto> getAllExchanges() {
         return exchangeService.getAllExchanges();
     }
 
     @GetMapping(params = "sorted")
-    public List<ExchangeDto> getAllExchangesSorted() {
+    public Flux<ExchangeDto> getAllExchangesSorted() {
         return exchangeService.getAllExchangesSortedByMarketPrice();
     }
 
     @GetMapping("/{symbol}")
-    public ResponseEntity<ExchangeDto> getExchangeBySymbol(@PathVariable String symbol) {
+    public ResponseEntity<Mono<ExchangeDto>> getExchangeBySymbol(@PathVariable String symbol) {
         return ResponseEntity.ok(exchangeService.getExchange(symbol));
     }
 }

@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.web.client.RestClient;
+import org.springframework.web.reactive.function.client.WebClient;
 
 @EnableAsync
 @EnableScheduling
@@ -16,7 +16,7 @@ public class ExchangeServiceApplication {
     }
 
     @Bean
-    public RestClient restClient() {
-        return RestClient.create();
+    public WebClient restClient() {
+        return WebClient.create();
     }
 }
