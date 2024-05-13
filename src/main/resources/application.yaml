@@ -2,23 +2,8 @@ spring:
   application:
     name: cryptodvala-exchange-service
   profiles:
-    active: "${ACTIVE_PROFILE}:dev"
-  cache:
-    type: redis
-    cache-names: ${CACHE_NAME}
-    redis:
-      cache-null-values: false
-      enable-statistics: true
-  r2dbc:
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
-    url: r2dbc:postgresql://postgresql:5432/cryptodvala
-  data:
-    redis:
-      password: ${REDIS_PASSWORD}
-management:
-  endpoints:
-    web:
-      base-path: /actuator/exchange-service/
-      exposure:
-        include: *
+    active: ${ACTIVE_PROFILE}:dev
+  boot:
+    admin:
+      client:
+        url: ${ADMIN_URL}

@@ -1,0 +1,24 @@
+spring:
+  cache:
+    type: redis
+    redis:
+      cache-null-values: false
+      enable-statistics: true
+  r2dbc:
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    url: ${DB_URL}
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
+      password: ${REDIS_PASSWORD}
+management:
+  endpoints:
+    web:
+      base-path: ${ACTUATOR_URL}
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always

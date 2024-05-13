@@ -34,4 +34,3 @@ build/
 
 ### ENV FILES ###
 .env
-/src/main/resources/application-dev.yaml
