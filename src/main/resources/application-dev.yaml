@@ -4,6 +4,7 @@ spring:
     redis:
       cache-null-values: false
       enable-statistics: true
+      time-to-live: 2500ms
   r2dbc:
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}

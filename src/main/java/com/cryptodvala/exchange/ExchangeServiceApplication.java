@@ -24,7 +24,7 @@ public class ExchangeServiceApplication {
     }
 
     @Bean
-    public WebClient restClient() {
+    public WebClient webClient() {
         return WebClient.create();
     }
 

@@ -2,7 +2,7 @@ spring:
   application:
     name: cryptodvala-exchange-service
   profiles:
-    active: ${ACTIVE_PROFILE}:dev
+    active: ${ACTIVE_PROFILE}
   boot:
     admin:
       client:
