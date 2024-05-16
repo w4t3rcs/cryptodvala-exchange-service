@@ -8,12 +8,21 @@ spring:
   r2dbc:
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
-    url: ${DB_URL}
+    url: r2dbc:postgresql://postgresql:5432
     name: ${DB_NAME}
+  data:
+    redis:
+      password: ${REDIS_PASSWORD}
+      ssl:
+        enabled: true
+  boot:
+    admin:
+      client:
+        url: http://localhost:8080
 management:
   endpoints:
     web:
-      base-path: ${ACTUATOR_URL}
+      base-path: /actuator/exchange-service
       exposure:
         include: '*'
   endpoint:

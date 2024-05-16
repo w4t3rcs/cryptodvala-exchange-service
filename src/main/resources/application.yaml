@@ -3,7 +3,3 @@ spring:
     name: cryptodvala-exchange-service
   profiles:
     active: ${ACTIVE_PROFILE}
-  boot:
-    admin:
-      client:
-        url: ${ADMIN_URL}
