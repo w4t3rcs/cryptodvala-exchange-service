@@ -1,6 +1,6 @@
 package com.cryptodvala.exchange.async.impl;
 
-import com.cryptodvala.exchange.async.DatabaseLoader;
+import com.cryptodvala.exchange.async.DataLoader;
 import com.cryptodvala.exchange.dto.ExchangeDto;
 import com.cryptodvala.exchange.service.ExchangeService;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +13,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class DatabaseLoaderImpl implements DatabaseLoader {
+public class BinanceDataLoader implements DataLoader {
     private final ExchangeService exchangeService;
     private final WebClient webClient;
 

@@ -1,5 +1,5 @@
 package com.cryptodvala.exchange.async;
 
-public interface DatabaseLoader {
+public interface DataLoader {
     void load();
 }
