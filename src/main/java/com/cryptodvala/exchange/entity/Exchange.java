@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class Exchange implements Persistable<String>, Serializable {
     @Id
     private String symbol;
-    private float marketPrice;
+    private float markPrice;
 
     @Override
     public String getId() {
