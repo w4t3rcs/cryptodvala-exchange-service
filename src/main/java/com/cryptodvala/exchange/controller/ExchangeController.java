@@ -21,7 +21,7 @@ public class ExchangeController {
     }
 
     @GetMapping(params = "sorted")
-    public Flux<ExchangeDto> getAllExchangesSorted() {
+    public Flux<ExchangeDto> getAllExchangesSortedByMarketPrice() {
         return exchangeService.getAllExchangesSortedByMarketPrice();
     }
 
